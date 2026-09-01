@@ -1,0 +1,7 @@
+# V1.33 2026-09-01 Scheme A 回灌版— Game-Later vanilla 92E0120F + V1.32 六项回灌，全量 typetree 对齐
+# DLL: MODworkv2/builds/ShadowDungeon-MOD-V1.33_2026-09-01/Assembly-CSharp.dll — 2,451,968 bytes — 0 error, 122 warnings — Scheme A
+69C0D965E1F761DE81A9468A0F95B30280B49DB1C91F576417088B35DB264E5C *ShadowDungeon-MOD-V1.33_2026-09-01/Assembly-CSharp.dll
+# ZIP: MODworkv2/builds/ShadowDungeon-MOD-V1.33_2026-09-01.zip — 803KB — flat paths, install.ps1 hash 69C0D965, zip A8E783C5
+A8E783C5639D80C2C8747FBE09E8BB3002ED59F676F3CE76E7B40C508CA74227 *ShadowDungeon-MOD-V1.33_2026-09-01.zip
+# 基于 Game-Later vanilla 92E0120F (2,352,640B) + V1.32 六项: LastCastInfo/BuffTime死门/PoeItemMod白名单/TargetPos环向/3+N单环均分/词条双回退
+# Vanilla backup: MODworkv2/backup/Assembly-CSharp.dll — 92E0120FB939BFACF15C86CD71F8B878AB77DB5118404C1F2F26CB46840D2D52 — 2,352,640 bytes

@@ -1,0 +1,14 @@
+# Large game binaries - track only DLL hash, not binary
+Game-Later/
+UnityPlayer.zip
+_archive/
+MODworkv2/backup/
+MODworkv2/refs/
+MODworkv2/builds/*.zip
+MODworkv2/builds/*/*.dll
+MODworkv2/decompiled/bin/
+MODworkv2/decompiled/obj/
+磁盘文件夹树形清理/
+*.log
+__pycache__/
+*.pyc

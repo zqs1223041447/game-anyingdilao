@@ -1,0 +1,920 @@
+{
+ "startedAt": "2026-08-28 22:52:11",
+ "results": [
+  {
+   "localEN": "FireBall",
+   "localCN": "火球术",
+   "poeCounterpart": "Fireball",
+   "status": "ok",
+   "mtxEffect": "Dragon_Fireball_Effect",
+   "icon": true,
+   "youtube": "VEbj37D6-W0"
+  },
+  {
+   "localEN": "Hellfire",
+   "localCN": "地狱火",
+   "poeCounterpart": "Incinerate",
+   "status": "ok",
+   "mtxEffect": "Direblade_Incinerate_Effect",
+   "icon": true,
+   "youtube": "Lq4LFdxcLoY"
+  },
+  {
+   "localEN": "Meteorite",
+   "localCN": "陨石",
+   "poeCounterpart": "Meteor",
+   "status": "ok",
+   "mtxEffect": "Blackstar_Meteor_Rare_Finisher_Effect",
+   "icon": true,
+   "youtube": null
+  },
+  {
+   "localEN": "Flamestrike",
+   "localCN": "烈焰风暴",
+   "poeCounterpart": "Flameblast",
+   "status": "ok",
+   "mtxEffect": "Demonic_Flameblast_Effect",
+   "icon": true,
+   "youtube": null
+  },
+  {
+   "localEN": "Volcano",
+   "localCN": "火山爆发",
+   "poeCounterpart": "Volcanic Fissure",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Hell Bomb",
+   "localCN": "地狱爆弹",
+   "poeCounterpart": "Fireball",
+   "status": "ok",
+   "mtxEffect": "Dragon_Fireball_Effect",
+   "icon": true,
+   "youtube": "VEbj37D6-W0"
+  },
+  {
+   "localEN": "Ice Crystal",
+   "localCN": "冰晶术",
+   "poeCounterpart": "Ice Spear",
+   "status": "ok",
+   "mtxEffect": "Swordfish_Ice_Spear_Effect",
+   "icon": true,
+   "youtube": "R6kc7beXn2k"
+  },
+  {
+   "localEN": "Frost Comet",
+   "localCN": "冰霜彗星",
+   "poeCounterpart": "Comet",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Frost Ball",
+   "localCN": "冰霜球",
+   "poeCounterpart": "Frostbolt",
+   "status": "ok",
+   "mtxEffect": "Black_Hole_Frostbolt_Effect",
+   "icon": true,
+   "youtube": "KASLqCFhCuE"
+  },
+  {
+   "localEN": "Ice Ward",
+   "localCN": "寒冰结界",
+   "poeCounterpart": "Frost Shield",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Blizzard",
+   "localCN": "暴风雪",
+   "poeCounterpart": "Blizzard",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Arctic Fury",
+   "localCN": "北极之怒",
+   "poeCounterpart": "Glacial Cascade",
+   "status": "ok",
+   "mtxEffect": "Gore_Glacial_Cascade_Effect",
+   "icon": true,
+   "youtube": null
+  },
+  {
+   "localEN": "Lightning Ball",
+   "localCN": "闪电球",
+   "poeCounterpart": "Ball Lightning",
+   "status": "ok",
+   "mtxEffect": "Divine_Ball_Lightning_Effect",
+   "icon": true,
+   "youtube": "5uXcU0Xp_QE"
+  },
+  {
+   "localEN": "Lightning Barrier",
+   "localCN": "闪电屏障",
+   "poeCounterpart": "Lightning Shield",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Thunderstrike",
+   "localCN": "雷霆打击",
+   "poeCounterpart": "Thunder",
+   "status": "ok",
+   "mtxEffect": "God_of_Thunder_Weapon_Effect",
+   "icon": true,
+   "youtube": null
+  },
+  {
+   "localEN": "Thunder Teleport",
+   "localCN": "雷霆跃迁",
+   "poeCounterpart": "Lightning Warp",
+   "status": "ok",
+   "mtxEffect": "Demonic_Lightning_Warp_Effect",
+   "icon": true,
+   "youtube": "leJutxhpF3o"
+  },
+  {
+   "localEN": "Arcane Bomb",
+   "localCN": "奥术爆弹",
+   "poeCounterpart": "Orb of Storms",
+   "status": "ok",
+   "mtxEffect": "Demonic_Orb_of_Storms_Effect",
+   "icon": true,
+   "youtube": "zOP8GsCw_U8"
+  },
+  {
+   "localEN": "Thunderous Fury",
+   "localCN": "雷霆之怒",
+   "poeCounterpart": "Storm Burst",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Cleave",
+   "localCN": "劈砍",
+   "poeCounterpart": "Cleave",
+   "status": "ok",
+   "mtxEffect": "Demon_Hand_Cleave_Effect",
+   "icon": true,
+   "youtube": "7_uDBjRX45Y"
+  },
+  {
+   "localEN": "Phantom Slash",
+   "localCN": "幻影斩",
+   "poeCounterpart": "Spectral Throw",
+   "status": "ok",
+   "mtxEffect": "Golden_Spectral_Throw_Effect",
+   "icon": true,
+   "youtube": "xvUIpm490q0"
+  },
+  {
+   "localEN": "Blade Dance",
+   "localCN": "剑刃之舞",
+   "poeCounterpart": "Blade Vortex",
+   "status": "ok",
+   "mtxEffect": "Hasina_Blade_Vortex_Effect",
+   "icon": true,
+   "youtube": null
+  },
+  {
+   "localEN": "Holy Sword",
+   "localCN": "圣剑",
+   "poeCounterpart": "Holy Relic",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Death Reaper",
+   "localCN": "死亡收割",
+   "poeCounterpart": "Blade Flurry",
+   "status": "ok",
+   "mtxEffect": "Demonic_Blade_Flurry_Effect",
+   "icon": true,
+   "youtube": null
+  },
+  {
+   "localEN": "Blade Soul",
+   "localCN": "剑灵",
+   "poeCounterpart": "Bladefall",
+   "status": "ok",
+   "mtxEffect": "Golden_Bladefall_Effect",
+   "icon": true,
+   "youtube": "mNVm65iAbNY"
+  },
+  {
+   "localEN": "Lightning Blade",
+   "localCN": "闪电之刃",
+   "poeCounterpart": "Lightning Strike",
+   "status": "ok",
+   "mtxEffect": "Vulcan_Lightning_Strike_Effect",
+   "icon": true,
+   "youtube": "smLh_dCHg0Q"
+  },
+  {
+   "localEN": "Sanctuary Shield",
+   "localCN": "圣盾庇护",
+   "poeCounterpart": "Shield Charge",
+   "status": "ok",
+   "mtxEffect": "Misery_Shield_Charge_Effect",
+   "icon": true,
+   "youtube": null
+  },
+  {
+   "localEN": "Fearless Charge",
+   "localCN": "无畏冲锋",
+   "poeCounterpart": "Leap Slam",
+   "status": "ok",
+   "mtxEffect": "Sin_Leap_Slam_Effect",
+   "icon": true,
+   "youtube": null
+  },
+  {
+   "localEN": "Hammer of Justice",
+   "localCN": "正义之锤",
+   "poeCounterpart": "Hammer of the Gods",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Radiance",
+   "localCN": "耀斑",
+   "poeCounterpart": "Purifying Flame",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Electric Storm",
+   "localCN": "电能风暴",
+   "poeCounterpart": "Storm Call",
+   "status": "ok",
+   "mtxEffect": "Arcane_Storm_Call_Effect",
+   "icon": true,
+   "youtube": "X4ljNaF_Lew"
+  },
+  {
+   "localEN": "Godly Incarnation",
+   "localCN": "天神下凡",
+   "poeCounterpart": "Godly Incarnation",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Blazing Sword",
+   "localCN": "炽热之剑",
+   "poeCounterpart": "Molten Strike",
+   "status": "ok",
+   "mtxEffect": "Stygian_Molten_Strike_Effect",
+   "icon": true,
+   "youtube": "Ca56dLKgwqE"
+  },
+  {
+   "localEN": "Molten Fissure",
+   "localCN": "熔岩裂缝",
+   "poeCounterpart": "Molten Strike",
+   "status": "ok",
+   "mtxEffect": "Stygian_Molten_Strike_Effect",
+   "icon": true,
+   "youtube": "Ca56dLKgwqE"
+  },
+  {
+   "localEN": "Flame Charge",
+   "localCN": "火焰冲锋",
+   "poeCounterpart": "Flame Dash",
+   "status": "ok",
+   "mtxEffect": "Black_Flame_Dash_Effect",
+   "icon": true,
+   "youtube": null
+  },
+  {
+   "localEN": "Dragon's Fury",
+   "localCN": "天龙之怒",
+   "poeCounterpart": "Dragon Fury",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Infernal Slash",
+   "localCN": "炼狱斩击",
+   "poeCounterpart": "Infernal Blow",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Flaming Meteor Storm",
+   "localCN": "毁天灭地",
+   "poeCounterpart": "Meteor",
+   "status": "ok",
+   "mtxEffect": "Blackstar_Meteor_Rare_Finisher_Effect",
+   "icon": true,
+   "youtube": null
+  },
+  {
+   "localEN": "Flame Incarnation",
+   "localCN": "火焰化身",
+   "poeCounterpart": "Avatar of Fire",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Razor Arrow",
+   "localCN": "剃刀箭",
+   "poeCounterpart": "Razor Arrow",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Lethal Dart",
+   "localCN": "夺命飞镖",
+   "poeCounterpart": "Poison Dart",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Barrage",
+   "localCN": "齐射",
+   "poeCounterpart": "Barrage",
+   "status": "ok",
+   "mtxEffect": "Arcane_Barrage_Effect",
+   "icon": true,
+   "youtube": "jjUrS5S286g"
+  },
+  {
+   "localEN": "Gale Arrow",
+   "localCN": "狂风箭",
+   "poeCounterpart": "Gale Arrow",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Storm Barrage",
+   "localCN": "风暴射击",
+   "poeCounterpart": "Storm Rain",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Power of the Wind",
+   "localCN": "风之力",
+   "poeCounterpart": "Wind Ward",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Flame Arrow",
+   "localCN": "烈焰箭",
+   "poeCounterpart": "Burning Arrow",
+   "status": "ok",
+   "mtxEffect": "Mystic_Burning_Arrow_Effect",
+   "icon": true,
+   "youtube": "a-mMw9ESjnM"
+  },
+  {
+   "localEN": "Explosive Arrow",
+   "localCN": "爆炸箭",
+   "poeCounterpart": "Explosive Arrow",
+   "status": "ok",
+   "mtxEffect": "Revenant_Explosive_Arrow_Effect",
+   "icon": true,
+   "youtube": "rDCcUYWt9Lk"
+  },
+  {
+   "localEN": "Fire Hydra",
+   "localCN": "火焰九头蛇",
+   "poeCounterpart": "Fire Trap",
+   "status": "ok",
+   "mtxEffect": "Oblivion_Fire_Trap_Effect",
+   "icon": true,
+   "youtube": "utF591r90zE"
+  },
+  {
+   "localEN": "Cluster Cannon",
+   "localCN": "集束火炮",
+   "poeCounterpart": "Cluster Trap",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Heavenly Flames",
+   "localCN": "天堂之火",
+   "poeCounterpart": "Burning Arrow",
+   "status": "ok",
+   "mtxEffect": "Mystic_Burning_Arrow_Effect",
+   "icon": true,
+   "youtube": "a-mMw9ESjnM"
+  },
+  {
+   "localEN": "Blazing Fury",
+   "localCN": "炽热之怒",
+   "poeCounterpart": "Burning Arrow",
+   "status": "ok",
+   "mtxEffect": "Mystic_Burning_Arrow_Effect",
+   "icon": true,
+   "youtube": "a-mMw9ESjnM"
+  },
+  {
+   "localEN": "Infernal Cataclysm",
+   "localCN": "焚天狱火",
+   "poeCounterpart": "Burning Arrow",
+   "status": "ok",
+   "mtxEffect": "Mystic_Burning_Arrow_Effect",
+   "icon": true,
+   "youtube": "a-mMw9ESjnM"
+  },
+  {
+   "localEN": "Venomous Arrows",
+   "localCN": "毒蛇之矢",
+   "poeCounterpart": "Poison Arrow",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Plague Arrow",
+   "localCN": "瘟疫之箭",
+   "poeCounterpart": "Plague Arrow",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Parasitic Burst Arrows",
+   "localCN": "寄生爆裂箭",
+   "poeCounterpart": "Puncture",
+   "status": "ok",
+   "mtxEffect": "Stygian_Puncture_Effect",
+   "icon": true,
+   "youtube": "2KXjtshjP-o"
+  },
+  {
+   "localEN": "Arrow Rain",
+   "localCN": "箭雨",
+   "poeCounterpart": "Rain of Arrows",
+   "status": "ok",
+   "mtxEffect": "Emerald_Rain_of_Arrows_Effect",
+   "icon": true,
+   "youtube": "d4bmEkG8Nuk"
+  },
+  {
+   "localEN": "Chlorophyte Arrows",
+   "localCN": "叶绿箭",
+   "poeCounterpart": "Poison Arrow",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Venomous lord",
+   "localCN": "剧毒领主",
+   "poeCounterpart": "Herald of Agony",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Spear of Vengeance",
+   "localCN": "复仇之矛",
+   "poeCounterpart": "Spear Throw",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Blood Pool",
+   "localCN": "血池",
+   "poeCounterpart": "Blood Pool",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Shadow Orb",
+   "localCN": "暗影球",
+   "poeCounterpart": "Shadow Orb",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Shadow Chains",
+   "localCN": "暗影锁链",
+   "poeCounterpart": "Chain",
+   "status": "ok",
+   "mtxEffect": "Stygian_Chain_Hook_Effect",
+   "icon": true,
+   "youtube": "GlItH9lIoWw"
+  },
+  {
+   "localEN": "Corruption Domain",
+   "localCN": "腐化之地",
+   "poeCounterpart": "Desecrate",
+   "status": "ok",
+   "mtxEffect": "Void_Desecrate_Effect",
+   "icon": true,
+   "youtube": "JSH92V8HKeg"
+  },
+  {
+   "localEN": "Shadow Armor",
+   "localCN": "暗影装甲",
+   "poeCounterpart": "Shadow Form",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Doom Sigil",
+   "localCN": "末日诅咒",
+   "poeCounterpart": "Doom",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Demonic Ball",
+   "localCN": "恶魔之球",
+   "poeCounterpart": "Dark Pact",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Toxic Shot",
+   "localCN": "毒性射击",
+   "poeCounterpart": "Toxic Rain",
+   "status": "ok",
+   "mtxEffect": "Vulcan_Toxic_Rain_Effect",
+   "icon": true,
+   "youtube": "uwn4W9YlTiM"
+  },
+  {
+   "localEN": "Toxic Domain",
+   "localCN": "剧毒领域",
+   "poeCounterpart": "Toxic Domain",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Cursed Totem",
+   "localCN": "诅咒图腾",
+   "poeCounterpart": "Totem",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Venom Trap",
+   "localCN": "剧毒陷阱",
+   "poeCounterpart": "Trap",
+   "status": "ok",
+   "mtxEffect": "Oblivion_Fire_Trap_Effect",
+   "icon": true,
+   "youtube": "utF591r90zE"
+  },
+  {
+   "localEN": "Venom Nova",
+   "localCN": "剧毒新星",
+   "poeCounterpart": "Venom Gyre",
+   "status": "ok",
+   "mtxEffect": "Illusionist_Venom_Gyre_Effect",
+   "icon": true,
+   "youtube": null
+  },
+  {
+   "localEN": "Flame Demon",
+   "localCN": "火焰恶魔",
+   "poeCounterpart": "Flame Demon",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Frost Golem",
+   "localCN": "冰霜石头人",
+   "poeCounterpart": "Frost Golem",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Electric Sprite",
+   "localCN": "电精灵",
+   "poeCounterpart": "Electric Sprite",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Ancient Guardian",
+   "localCN": "远古守卫",
+   "poeCounterpart": "Ancient Guardian",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Sanctuary Warrior",
+   "localCN": "圣堂武士",
+   "poeCounterpart": "Sanctuary Warrior",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Venom Sprite",
+   "localCN": "毒精灵",
+   "poeCounterpart": "Venom Sprite",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Skeleton Warrior",
+   "localCN": "骷髅战士",
+   "poeCounterpart": "Skeleton Warrior",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Death Sentry",
+   "localCN": "死亡哨兵",
+   "poeCounterpart": "Death Sentry",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Bone Archer",
+   "localCN": "白骨弓手",
+   "poeCounterpart": "Bone Archer",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Curse Mage",
+   "localCN": "诅咒法师",
+   "poeCounterpart": "Curse Mage",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Reaper",
+   "localCN": "死神",
+   "poeCounterpart": "Reaper",
+   "status": "ok",
+   "mtxEffect": "Grim_Reaper_Apparition_Effect",
+   "icon": true,
+   "youtube": null
+  },
+  {
+   "localEN": "Venomous Spider",
+   "localCN": "剧毒蜘蛛",
+   "poeCounterpart": "Venomous Spider",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Phantom Archer",
+   "localCN": "幽灵弓手",
+   "poeCounterpart": "Phantom Archer",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Incineration",
+   "localCN": "焚烧",
+   "poeCounterpart": "Incineration",
+   "status": "ok",
+   "mtxEffect": "Sun_Priests_Incineration_Rare_Finisher_Effect",
+   "icon": true,
+   "youtube": null
+  },
+  {
+   "localEN": "Frostbite",
+   "localCN": "霜冻",
+   "poeCounterpart": "Frostbite",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Conductive",
+   "localCN": "导电",
+   "poeCounterpart": "Conductive",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Bleeding",
+   "localCN": "血流不止",
+   "poeCounterpart": "Bleeding",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Divine Punishment",
+   "localCN": "神罚",
+   "poeCounterpart": "Divine Punishment",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Sacred Flames",
+   "localCN": "神圣火焰",
+   "poeCounterpart": "Sacred Flames",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Way of the Hero",
+   "localCN": "侠客之道",
+   "poeCounterpart": "Way of the Hero",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Oiling",
+   "localCN": "涂油",
+   "poeCounterpart": "Oiling",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Venomous Parasitism",
+   "localCN": "毒虫寄生",
+   "poeCounterpart": "Venomous Parasitism",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Impure Blood",
+   "localCN": "不洁之血",
+   "poeCounterpart": "Impure Blood",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Mental Corruption",
+   "localCN": "心灵腐蚀",
+   "poeCounterpart": "Mental Corruption",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Black Plague",
+   "localCN": "黑死病",
+   "poeCounterpart": "Black Plague",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Demon's Heart",
+   "localCN": "恶魔之心",
+   "poeCounterpart": "Demon's Heart",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Flame Essence",
+   "localCN": "火焰灵气",
+   "poeCounterpart": "Flame Essence",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Flame Mastery",
+   "localCN": "火焰掌控",
+   "poeCounterpart": "Flame Mastery",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Frost Sting",
+   "localCN": "深寒之刺",
+   "poeCounterpart": "Frost Sting",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Frost Bloodline",
+   "localCN": "寒冰血脉",
+   "poeCounterpart": "Frost Bloodline",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Meditation",
+   "localCN": "冥想",
+   "poeCounterpart": "Meditation",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Arcane Shockwave",
+   "localCN": "奥术震荡",
+   "poeCounterpart": "Arcane Shockwave",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Lightning Mastery",
+   "localCN": "掌控闪电",
+   "poeCounterpart": "Lightning Mastery",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Spirit Control",
+   "localCN": "灵体掌控",
+   "poeCounterpart": "Spirit Control",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Rapid Traveler",
+   "localCN": "急行者",
+   "poeCounterpart": "Rapid Traveler",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Zealot",
+   "localCN": "狂热者",
+   "poeCounterpart": "Zealot",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Conqueror",
+   "localCN": "征服者",
+   "poeCounterpart": "Conqueror",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "prayer",
+   "localCN": "祈祷者",
+   "poeCounterpart": "prayer",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Elemental Blessing",
+   "localCN": "元素祝福",
+   "poeCounterpart": "Elemental Blessing",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Faith",
+   "localCN": "信念",
+   "poeCounterpart": "Faith",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Dragon's Courage",
+   "localCN": "龙胆",
+   "poeCounterpart": "Dragon's Courage",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Tempered Blade",
+   "localCN": "淬火刃",
+   "poeCounterpart": "Tempered Blade",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Reviving Gale",
+   "localCN": "复苏之风",
+   "poeCounterpart": "Reviving Gale",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Rapid Fire",
+   "localCN": "连续射击",
+   "poeCounterpart": "Rapid Fire",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Bloodthirsty Shot",
+   "localCN": "嗜血射击",
+   "poeCounterpart": "Bloodthirsty Shot",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Piercing Shot",
+   "localCN": "击穿",
+   "poeCounterpart": "Piercing Shot",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Eagle Eye",
+   "localCN": "鹰眼",
+   "poeCounterpart": "Eagle Eye",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Black Powder",
+   "localCN": "黑火药",
+   "poeCounterpart": "Black Powder",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Demolitionist",
+   "localCN": "爆破者",
+   "poeCounterpart": "Demolitionist",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Treant Blessing",
+   "localCN": "树妖祝福",
+   "poeCounterpart": "Treant Blessing",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Acid Arrow",
+   "localCN": "酸性箭头",
+   "poeCounterpart": "Acid Arrow",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Earth Blessing",
+   "localCN": "大地祝福",
+   "poeCounterpart": "Earth Blessing",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Soul Sacrifice",
+   "localCN": "灵魂献祭",
+   "poeCounterpart": "Soul Sacrifice",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Bone Piercer",
+   "localCN": "白骨穿刺",
+   "poeCounterpart": "Bone Piercer",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Mind Blast",
+   "localCN": "心灵震爆",
+   "poeCounterpart": "Mind Blast",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Dark Surge",
+   "localCN": "黑暗涌动",
+   "poeCounterpart": "Dark Surge",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Witchcraft",
+   "localCN": "巫术",
+   "poeCounterpart": "Witchcraft",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Psychic Mastery",
+   "localCN": "灵能掌控",
+   "poeCounterpart": "Psychic Mastery",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Herbalism",
+   "localCN": "草药学",
+   "poeCounterpart": "Herbalism",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Deadly Venom",
+   "localCN": "致命毒液",
+   "poeCounterpart": "Deadly Venom",
+   "status": "no-direct-mtx"
+  },
+  {
+   "localEN": "Immunity",
+   "localCN": "免疫体质",
+   "poeCounterpart": "Immunity",
+   "status": "no-direct-mtx"
+  }
+ ],
+ "summary": {
+  "ok": 41,
+  "noDirectMtx": 90,
+  "failed": 0,
+  "total": 131
+ }
+}

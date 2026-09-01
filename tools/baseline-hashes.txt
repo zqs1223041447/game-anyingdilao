@@ -1,0 +1,6 @@
+Game-Later vanilla DLL 92E0120F 2352640B
+level1 67d86d7b51fdedbb90812103c9d4782b1a58c39410c1f15ac755ffb8025da92 2066760B
+resources d9948ac3aced164569117de4f749dd56f8d866d856b90bfe67acbf2121ed1917
+globalgamemanagers 33d0679fe7e449e4fa820d7ba289ca273499007059015d7723d728be6e1ba54e
+MOD current 69C0D965 2.4M (pre-rebuild, needs line-by-line redo)
+V1.32 snapshot 0C779D0E 2.4M (six-item source)

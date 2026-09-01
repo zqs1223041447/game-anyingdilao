@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>POE 融合 · 三种"动画感"实现方案动态演示</title>
+<script>
+window.onerror=function(m,s,l,c,e){
+  var d=document.getElementById("errbox");
+  if(!d){ d=document.createElement("div"); d.id="errbox";
+    d.style.cssText="position:fixed;top:0;left:0;right:0;background:#5a1020;color:#fff;font:12px monospace;padding:6px 10px;z-index:999;white-space:pre-wrap;max-height:45%;overflow:auto";
+    (document.body||document.documentElement).appendChild(d); }
+  d.textContent+="[ERR] "+m+" @line "+l+":"+c+"\n"+(e&&e.stack?e.stack:"")+"\n";
+};
+</script>
+<style>
+  :root { --bg:#07080c; --panel:#0d1018; --line:#232a3a; --txt:#c8d2e0; --dim:#7b8798; --acc:#4fa3ff; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--txt); font-family:"Microsoft YaHei","PingFang SC",sans-serif; padding:18px 20px 30px; }
+  header h1 { font-size:20px; margin:0 0 4px; }
+  header .sub { color:var(--dim); font-size:12px; margin-bottom:12px; }
+  .controls { display:flex; gap:8px; align-items:center; margin-bottom:10px; flex-wrap:wrap; }
+  .controls button { background:#141a26; color:var(--txt); border:1px solid var(--line); border-radius:6px; padding:6px 14px; cursor:pointer; font-size:13px; }
+  .controls button.active { border-color:var(--acc); color:var(--acc); }
+  .controls .pause { margin-left:auto; }
+  .ref { display:flex; align-items:center; gap:10px; font-size:12px; color:var(--dim); margin-bottom:14px; }
+  .ref img { width:56px; height:56px; image-rendering:auto; border:1px solid var(--line); border-radius:4px; background:#000; }
+  main { display:flex; gap:14px; flex-wrap:wrap; }
+  section.panel { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:12px 14px; flex:1 1 480px; max-width:560px; }
+  section.panel h2 { font-size:15px; margin:0 0 2px; color:#e8eef7; }
+  section.panel .lead { font-size:11.5px; color:var(--dim); margin:0 0 8px; }
+  canvas { width:100%; border-radius:6px; display:block; }
+  .note { font-size:11.5px; color:var(--txt); opacity:.85; margin-top:8px; line-height:1.6; }
+  .note b { color:var(--acc); }
+  footer { margin-top:16px; color:var(--dim); font-size:11px; line-height:1.7; }
+</style>
+</head>
+<body>
+<header>
+  <h1>POE 融合 · 三种"动画感"实现方案动态演示</h1>
+  <div class="sub">对应 docs/research/poe-fx-fusion-survey.md §8.3 · 本页全部图形为 Canvas 程序实时生成（离线可用）· 右上参考图仅为 POEDB 抓取素材的观感对照（GGG 版权，参考研究用，不进游戏）</div>
+  <div class="controls" id="themeBar"></div>
+  <div class="ref"><img id="refImg" alt="POE 参考图"><span id="refName"></span></div>
+</header>
+<main>
+  <section class="panel">
+    <h2>方案一 · 自制序列帧 Flipbook</h2>
+    <div class="lead">自绘图集（8 帧）+ 帧动画播放 —— 上方是"生成的 sprite sheet"，下方是游戏内播放效果（命中爆炸）</div>
+    <canvas id="c1" width="480" height="300"></canvas>
+    <div class="note"><b>游戏内实现：</b>自绘 sprite sheet（导出 png）→ Shuriken「Texture Sheet Animation」或代码帧动画；起爆→维持→消散的节奏对照 POE 视频调。<b>版权干净可随包分发</b>。</div>
+  </section>
+  <section class="panel">
+    <h2>方案二 · CC0 素材包底材 + POE 调色</h2>
+    <div class="lead">同一套底材贴图（软圆光斑/火花/烟，示意 Kenney・Unity Particle Pack 同类内容），三个主题只换 tint —— "一底多色"</div>
+    <canvas id="c2" width="480" height="300"></canvas>
+    <div class="note"><b>游戏内实现：</b>CC0 包贴图可直接随游戏分发（与 POE 素材的本质区别）→ LoadImage/内置 → 作为粒子材质底图 → 按 POE 参考卡调 startColor/gradient。</div>
+  </section>
+  <section class="panel">
+    <h2>方案三 · Shuriken 深度程序化</h2>
+    <div class="lead">弹体 Trail 拖尾 → 死亡触发 Sub-Emitter 爆裂；右下角小图 = Size/Color over Lifetime 两条曲线</div>
+    <canvas id="c3" width="480" height="300"></canvas>
+    <div class="note"><b>游戏内实现：</b>纯代码可控（V1.18 ApplyBlackFlameStyle 同族零资产路线的加强版）：lifetime 曲线、sub-emitter 末段爆裂、粒子 Trails、重力/拉伸。</div>
+  </section>
+</main>
+<footer>
+  对照逻辑：POE 参考（右上）→ 人提炼"观感规格卡"（配色三件套/形态/节奏）→ 上面三种手段任选或组合落地到对应技能弹体。POE 原素材永不进游戏目录与升级包。<br>
+  《暗影地牢》MOD 工作区 · 生成于 2026-08-28 · 主题配色取自观感规格卡示范（火球术↔Dragon_Fireball / 冰晶术↔Swordfish_Ice_Spear / 黑炎=V1.18 已上线主题）
+</footer>
+<script>
+"use strict";
+/* ================= 主题定义（取自观感规格卡） ================= */
+const THEMES = {
+  fire: { label:"火球术（↔ POE Dragon Fireball）", ref:"skills/FireBall__Dragon_Fireball_Effect.webp",
+          core:"#FFF3C4", main:"#FFA02E", deep:"#E05A00", dark:"#5A2200", smoke:"rgba(58,28,8,0.5)" },
+  ice:  { label:"冰晶术（↔ POE Swordfish Ice Spear）", ref:"skills/Ice%20Crystal__Swordfish_Ice_Spear_Effect.webp",
+          core:"#FFFFFF", main:"#CFEFFF", deep:"#7CC4E8", dark:"#28506E", smoke:"rgba(28,58,80,0.5)" },
+  black:{ label:"黑炎（V1.18 已上线主题）", ref:"skills/FireBall__Dragon_Fireball_Effect.webp",
+          core:"#FF8A76", main:"#C2182B", deep:"#6E0E1A", dark:"#2A060A", smoke:"rgba(26,5,8,0.55)" }
+};
+const TIDS = ["fire","ice","black"];
+let cur = "fire", paused = false;
+
+function hex2rgb(h){ const n=parseInt(h.slice(1),16); return [n>>16&255,n>>8&255,n&255]; }
+function rgba(h,a){ const c=hex2rgb(h); return "rgba("+c[0]+","+c[1]+","+c[2]+","+a+")"; }
+function mix(h1,h2,t){ const a=hex2rgb(h1),b=hex2rgb(h2);
+  return "rgb("+Math.round(a[0]+(b[0]-a[0])*t)+","+Math.round(a[1]+(b[1]-a[1])*t)+","+Math.round(a[2]+(b[2]-a[2])*t)+")"; }
+function mulberry32(a){ return function(){ a|=0; a=a+0x6D2B79F5|0; let t=Math.imul(a^a>>>15,1|a);
+  t=t+Math.imul(t^t>>>7,61|t)^t; return ((t^t>>>14)>>>0)/4294967296; }; }
+
+/* ================= 底材贴图（示意 CC0 包内容，程序自绘） ================= */
+function makeTex(size, draw){
+  const c=document.createElement("canvas"); c.width=c.height=size;
+  const g=c.getContext("2d"); draw(g,size); return c;
+}
+function texSoft(g,s){ const r=s/2, gr=g.createRadialGradient(r,r,0,r,r,r);
+  gr.addColorStop(0,"rgba(255,255,255,1)"); gr.addColorStop(0.35,"rgba(255,255,255,0.55)");
+  gr.addColorStop(1,"rgba(255,255,255,0)"); g.fillStyle=gr; g.fillRect(0,0,s,s); }
+function texSpark(g,s){ const r=s/2; g.strokeStyle="rgba(255,255,255,0.95)"; g.lineCap="round";
+  for(let i=0;i<4;i++){ const a=i*Math.PI/4, len=(i%2? s*0.48 : s*0.46);
+    g.globalAlpha=1-i*0.12; g.lineWidth=s*0.10;
+    g.beginPath(); g.moveTo(r-Math.cos(a)*len,r-Math.sin(a)*len); g.lineTo(r+Math.cos(a)*len,r+Math.sin(a)*len); g.stroke(); }
+  g.globalAlpha=1; const gr=g.createRadialGradient(r,r,0,r,r,r*0.3);
+  gr.addColorStop(0,"rgba(255,255,255,1)"); gr.addColorStop(1,"rgba(255,255,255,0)");
+  g.fillStyle=gr; g.beginPath(); g.arc(r,r,r*0.3,0,7); g.fill(); }
+function texSmoke(g,s){ const rnd=mulberry32(7);
+  for(let i=0;i<14;i++){ const x=s/2+(rnd()-0.5)*s*0.42, y=s/2+(rnd()-0.5)*s*0.42, r=s*(0.12+rnd()*0.2);
+    const gr=g.createRadialGradient(x,y,0,x,y,r);
+    gr.addColorStop(0,"rgba(255,255,255,0.16)"); gr.addColorStop(1,"rgba(255,255,255,0)");
+    g.fillStyle=gr; g.beginPath(); g.arc(x,y,r,0,7); g.fill(); } }
+function texShard(g,s){ const r=s/2; g.translate(r,r);
+  g.fillStyle="rgba(255,255,255,0.95)";
+  g.beginPath(); g.moveTo(0,-r*0.9); g.lineTo(r*0.16,0); g.lineTo(0,r*0.9); g.lineTo(-r*0.16,0); g.closePath(); g.fill();
+  const gr=g.createRadialGradient(0,0,0,0,0,r*0.5);
+  gr.addColorStop(0,"rgba(255,255,255,0.9)"); gr.addColorStop(1,"rgba(255,255,255,0)");
+  g.fillStyle=gr; g.beginPath(); g.arc(0,0,r*0.5,0,7); g.fill(); }
+
+const BASE = { soft:makeTex(64,texSoft), spark:makeTex(64,texSpark), smoke:makeTex(64,texSmoke), shard:makeTex(64,texShard) };
+function tinted(tex, color){ // 保 alpha、填色
+  const c=document.createElement("canvas"); c.width=c.height=tex.width;
+  const g=c.getContext("2d"); g.drawImage(tex,0,0);
+  g.globalCompositeOperation="source-in"; g.fillStyle=color; g.fillRect(0,0,c.width,c.height);
+  return c;
+}
+/* 每主题的着色贴图组（theme 切换时重建） */
+let TX = {};
+function rebuildTextures(){
+  const t=THEMES[cur];
+  TX = {
+    fire:  { soft:tinted(BASE.soft,t.main), spark:tinted(BASE.spark,t.core),
+             smoke:tinted(BASE.smoke,t.dark), shard:tinted(BASE.shard,t.deep), core:tinted(BASE.soft,t.core) },
+    ice:   { soft:tinted(BASE.soft,t.main), spark:tinted(BASE.spark,t.core),
+             smoke:tinted(BASE.smoke,t.dark), shard:tinted(BASE.shard,t.core), core:tinted(BASE.soft,t.core) },
+    black: { soft:tinted(BASE.soft,t.main), spark:tinted(BASE.spark,t.core),
+             smoke:tinted(BASE.smoke,t.dark), shard:tinted(BASE.shard,t.deep), core:tinted(BASE.soft,t.core) }
+  };
+}
+
+/* ================= 通用画布底 ================= */
+function bg(g,w,h){
+  g.clearRect(0,0,w,h);
+  const gr=g.createRadialGradient(w/2,h*0.45,20,w/2,h*0.45,h*0.9);
+  gr.addColorStop(0,"#10141d"); gr.addColorStop(1,"#07080c");
+  g.fillStyle=gr; g.fillRect(0,0,w,h);
+  g.strokeStyle="rgba(80,100,140,0.08)"; g.lineWidth=1;
+  for(let x=0;x<w;x+=32){ g.beginPath(); g.moveTo(x,0); g.lineTo(x,h); g.stroke(); }
+  for(let y=0;y<h;y+=32){ g.beginPath(); g.moveTo(0,y); g.lineTo(w,y); g.stroke(); }
+}
+function label(g,txt,x,y,col){ g.font="11px 'Microsoft YaHei',sans-serif"; g.fillStyle=col||"rgba(180,200,230,0.85)"; g.fillText(txt,x,y); }
+
+/* ================= 方案一：Flipbook ================= */
+const SHEET_N=8, FR=96;
+let sheet=null, sheetT=0;
+function makeSheet(){
+  const t=THEMES[cur], rnd=mulberry32(cur==="fire"?101:cur==="ice"?202:303);
+  const c=document.createElement("canvas"); c.width=FR*SHEET_N; c.height=FR;
+  const g=c.getContext("2d");
+  for(let i=0;i<SHEET_N;i++){
+    const p=i/(SHEET_N-1), cx=i*FR+FR/2, cy=FR/2;
+    g.save(); g.translate(cx,cy);
+    if(cur==="ice"){ // 冰晶：锐利碎片外扩
+      const R=6+p*34, alpha=1-Math.max(0,(p-0.55))/0.45;
+      for(let k=0;k<14;k++){
+        const a=rnd()*Math.PI*2, d=R*(0.35+rnd()*0.75), len=(4+p*10)*(0.6+rnd()*0.8);
+        g.save(); g.translate(Math.cos(a)*d,Math.sin(a)*d); g.rotate(a);
+        g.fillStyle=rgba(p<0.4?t.core:(p<0.75?t.main:t.deep), alpha*(0.5+rnd()*0.5));
+        g.beginPath(); g.moveTo(-len,0); g.lineTo(0,-len*0.28); g.lineTo(len,0); g.lineTo(0,len*0.28); g.closePath(); g.fill();
+        g.restore();
+      }
+      const gr=g.createRadialGradient(0,0,0,0,0,16+p*10);
+      gr.addColorStop(0,rgba(t.core,alpha*0.95)); gr.addColorStop(1,rgba(t.core,0));
+      g.fillStyle=gr; g.beginPath(); g.arc(0,0,16+p*10,0,7); g.fill();
+    } else { // 火焰/黑炎：团簇火球
+      const R=7+p*30, alpha=1-Math.max(0,(p-0.5))/0.5;
+      const blobs=22;
+      for(let k=0;k<blobs;k++){
+        const a=rnd()*Math.PI*2, d=R*(0.15+rnd()*0.85)*p, r=(5+p*12)*(0.4+rnd()*0.9);
+        let col;
+        if(p<0.3) col=mix(t.core,t.main,rnd());
+        else if(p<0.7) col=mix(t.main,t.deep,rnd());
+        else col=mix(t.deep,t.dark,rnd());
+        g.fillStyle=rgba(hex2rgb(col)[0]?"#000000":"#000000",0); // noop 占位
+        g.fillStyle=col.replace("rgb","rgba").replace(")",(","+(alpha*(0.5+rnd()*0.5))+")"));
+        g.beginPath(); g.arc(Math.cos(a)*d,Math.sin(a)*d,r,0,7); g.fill();
+      }
+      const gr=g.createRadialGradient(0,0,0,0,0,R*0.8);
+      gr.addColorStop(0,rgba(t.core,alpha*0.95)); gr.addColorStop(0.6,rgba(t.main,alpha*0.6)); gr.addColorStop(1,rgba(t.main,0));
+      g.fillStyle=gr; g.beginPath(); g.arc(0,0,R*0.8,0,7); g.fill();
+    }
+    g.restore();
+  }
+  sheet=c;
+}
+const c1=document.getElementById("c1"), g1=c1.getContext("2d");
+function drawFlipbook(dt){
+  bg(g1,480,300);
+  if(!sheet) return;
+  // 上：图集条（缩放 0.55）
+  const sw=FR*0.55, sh=FR*0.55, total=sw*SHEET_N, ox=(480-total)/2;
+  g1.globalAlpha=1;
+  g1.drawImage(sheet,ox,12,total,sh);
+  g1.strokeStyle="rgba(90,120,170,0.35)";
+  for(let i=0;i<=SHEET_N;i++){ g1.beginPath(); g1.moveTo(ox+i*sw,12); g1.lineTo(ox+i*sw,12+sh); g1.stroke(); }
+  label(g1,"▲ 生成的 sprite sheet（8 帧 · 实际工程导出为 png）",ox,88,"rgba(140,160,190,0.9)");
+  // 下：播放
+  if(!paused) sheetT+=dt;
+  const PER=0.075, HOLD=0.55, CYC=SHEET_N*PER+HOLD;
+  let t=sheetT%CYC;
+  const fi=Math.min(SHEET_N-1,Math.floor(t/PER));
+  const playing=t<SHEET_N*PER;
+  const scale=1.9, size=FR*scale;
+  const px=240-size/2, py=104+(300-104-size)/2;
+  g1.save();
+  if(playing) g1.globalCompositeOperation="lighter";
+  g1.drawImage(sheet, fi*FR,0,FR,FR, px,py,size,size);
+  g1.restore();
+  label(g1, playing? ("播放中：第 "+(fi+1)+" 帧（14 fps，Hit 后触发一次）") : "等待下一轮（游戏中=下次命中）", 12, 292);
+}
+
+/* ================= 方案二：CC0 底材 + 三主题调色 ================= */
+const c2=document.getElementById("c2"), g2=c2.getContext("2d");
+// 底材条（固定展示 BASE 原始白色贴图）
+let texStrip=null;
+function makeStrip(){
+  const c=document.createElement("canvas"); c.width=480; c.height=64;
+  const g=c.getContext("2d");
+  const names=["软圆光斑 soft","火花 spark","烟 smoke","碎片 shard"];
+  const arr=[BASE.soft,BASE.spark,BASE.smoke,BASE.shard];
+  arr.forEach((tx,i)=>{ g.drawImage(tx, 24+i*118, 8, 48, 48); });
+  g.font="10px sans-serif";
+  names.forEach((n,i)=>{ g.fillStyle="rgba(150,170,200,0.9)"; g.fillText(n, 6+i*118, 62); });
+  texStrip=c;
+}
+const emitters=[
+  { tid:"fire",  x:90,  name:"火球术" },
+  { tid:"ice",   x:240, name:"冰晶术" },
+  { tid:"black", x:390, name:"黑炎" }
+];
+const parts=[]; let emitAcc=0;
+function drawCC0(dt){
+  bg(g2,480,300);
+  if(texStrip) g2.drawImage(texStrip,0,8);
+  const yBase=232;
+  if(!paused){
+    emitAcc+=dt;
+    const RATE=0.016;
+    while(emitAcc>RATE){ emitAcc-=RATE;
+      for(const em of emitters){
+        const tx=TX[em.tid];
+        parts.push({em:em.tid, kind:"glow", x:em.x+(Math.random()-0.5)*26, y:yBase-6,
+          vx:(Math.random()-0.5)*14, vy:-26-Math.random()*22, life:0, max:1.1+Math.random()*0.4, size:12+Math.random()*14});
+        if(Math.random()<0.5) parts.push({em:em.tid, kind:"spark", x:em.x+(Math.random()-0.5)*14, y:yBase-10,
+          vx:(Math.random()-0.5)*90, vy:-50-Math.random()*70, life:0, max:0.45+Math.random()*0.3, size:7+Math.random()*7});
+        if(Math.random()<0.22) parts.push({em:em.tid, kind:"smoke", x:em.x+(Math.random()-0.5)*18, y:yBase-18,
+          vx:(Math.random()-0.5)*10, vy:-16-Math.random()*10, life:0, max:1.6+Math.random()*0.6, size:14+Math.random()*10});
+      }
+    }
+    for(let i=parts.length-1;i>=0;i--){
+      const p=parts[i]; p.life+=dt;
+      if(p.life>=p.max){ parts.splice(i,1); continue; }
+      p.x+=p.vx*dt; p.y+=p.vy*dt;
+      if(p.kind==="smoke"){ p.size+=10*dt; p.vy*=0.99; } else { p.vy+=(p.kind==="spark"?120:8)*dt; }
+    }
+  }
+  // 烟（普通混合，先画）
+  for(const p of parts){ if(p.kind!=="smoke") continue;
+    const k=p.life/p.max, tx=TX[p.em];
+    g2.globalAlpha=(k<0.2? k/0.2 : 1-(k-0.2)/0.8)*0.5;
+    g2.drawImage(tx.smoke, p.x-p.size/2, p.y-p.size/2, p.size, p.size);
+  }
+  // 发光（加法混合）
+  g2.globalCompositeOperation="lighter";
+  for(const p of parts){
+    if(p.kind==="smoke") continue;
+    const k=p.life/p.max, tx=TX[p.em];
+    const a=(k<0.15? k/0.15 : 1-(k-0.15)/0.85);
+    g2.globalAlpha=a*(p.kind==="glow"?0.85:1);
+    const s=p.size*(p.kind==="glow"? (0.8+k*0.5) : (1-k*0.55));
+    g2.drawImage(p.kind==="glow"?tx.soft:tx.spark, p.x-s/2, p.y-s/2, s, s);
+  }
+  g2.globalCompositeOperation="source-over"; g2.globalAlpha=1;
+  // 地平线与标签
+  g2.strokeStyle="rgba(90,110,150,0.35)"; g2.beginPath(); g2.moveTo(20,yBase+6); g2.lineTo(460,yBase+6); g2.stroke();
+  for(const em of emitters){
+    const act = em.tid===cur;
+    label(g2, em.name+(act?"（当前参考）":""), em.x-24, yBase+24, act?"rgba(140,200,255,0.95)":"rgba(150,165,190,0.75)");
+  }
+  label(g2,"同底材 · 三 tint（加法混合发光 + 普通混合烟）",12,292,"rgba(140,160,190,0.9)");
+}
+
+/* ================= 方案三：Shuriken 程序化（Trail + SubEmitter + 曲线） ================= */
+const c3=document.getElementById("c3"), g3=c3.getContext("2d");
+let proj={t:0, state:"fly", trail:[], sparks:[], flashes:[]};
+function drawShuriken(dt){
+  bg(g3,480,300);
+  const T=THEMES[cur];
+  if(!paused) proj.t+=dt;
+  const y0=150, x0=30, x1=430, FLY=1.15;
+  if(proj.state==="fly"){
+    if(!paused){
+      const k=Math.min(1,proj.t/FLY);
+      proj.x=x0+(x1-x0)*k; proj.y=y0+Math.sin(k*5.2)*14;
+      proj.trail.push({x:proj.x,y:proj.y});
+      if(proj.trail.length>26) proj.trail.shift();
+      if(k>=1){ proj.state="burst"; proj.t=0; subBurst(proj.x,proj.y); }
+    }
+    // Trail：渐细渐隐折线
+    g3.globalCompositeOperation="lighter";
+    for(let i=1;i<proj.trail.length;i++){
+      const a=i/proj.trail.length;
+      g3.strokeStyle=rgba(T.main,a*0.65); g3.lineWidth=1+a*7; g3.lineCap="round";
+      g3.beginPath(); g3.moveTo(proj.trail[i-1].x,proj.trail[i-1].y); g3.lineTo(proj.trail[i].x,proj.trail[i].y); g3.stroke();
+    }
+    // 弹体（亮核）
+    g3.drawImage(TX[cur].core, proj.x-17, proj.y-17, 34, 34);
+    g3.drawImage(TX[cur].core, proj.x-8, proj.y-8, 16, 16);
+    g3.globalCompositeOperation="source-over";
+    label(g3,"▶ 弹体 + TrailRenderer（宽/色随时间衰减）",12,290);
+  } else if(proj.state==="burst"){
+    if(!paused){
+      // trail 消散
+      for(let i=0;i<3 && proj.trail.length;i++) proj.trail.shift();
+      for(let i=proj.sparks.length-1;i>=0;i--){
+        const p=proj.sparks[i]; p.life+=dt;
+        if(p.life>=p.max){ proj.sparks.splice(i,1); continue; }
+        p.vy+=150*dt; p.x+=p.vx*dt; p.y+=p.vy*dt; p.vx*=(1-0.6*dt);
+      }
+      for(let i=proj.flashes.length-1;i>=0;i--){
+        const f=proj.flashes[i]; f.life+=dt; if(f.life>=f.max) proj.flashes.splice(i,1);
+      }
+      if(proj.t>1.4){ proj.state="wait"; proj.t=0; }
+    }
+    g3.globalCompositeOperation="lighter";
+    for(const f of proj.flashes){
+      const k=f.life/f.max, s=f.from+(f.to-f.from)*Math.min(1,k*3);
+      g3.globalAlpha=(1-k)*0.9;
+      g3.drawImage(TX[cur].soft, f.x-s/2, f.y-s/2, s, s);
+    }
+    for(const p of proj.sparks){
+      const k=p.life/p.max;
+      const s=p.size*(1-k*0.8);                 // size over lifetime：衰减
+      g3.globalAlpha=(1-k);
+      const tex = p.kind==="shard"? TX[cur].shard : TX[cur].spark;
+      if(p.kind==="shard"){ g3.save(); g3.translate(p.x,p.y); g3.rotate(p.rot); g3.drawImage(tex,-s/2,-s/2,s,s); g3.restore(); }
+      else g3.drawImage(tex, p.x-s/2, p.y-s/2, s, s);
+    }
+    g3.globalAlpha=1; g3.globalCompositeOperation="source-over";
+    label(g3,"✷ Sub-Emitter 末段爆裂：火花(曲线衰减)+闪光+碎片+重力",12,290);
+  } else {
+    if(!paused && proj.t>0.35){ proj={t:0,state:"fly",trail:[],sparks:[],flashes:[]}; }
+    label(g3,"…（间歇，模拟下次命中）",12,290);
+  }
+  // Lifetime 曲线小图
+  const gx=352,gy=250,gw=116,gh=42;
+  g3.fillStyle="rgba(8,10,16,0.75)"; g3.fillRect(gx,gy,gw,gh);
+  g3.strokeStyle="rgba(90,120,170,0.4)"; g3.strokeRect(gx,gy,gw,gh);
+  g3.strokeStyle=rgba(T.main,0.95); g3.lineWidth=1.6; g3.beginPath();
+  for(let i=0;i<=24;i++){ const k=i/24, y=gy+gh-6-Math.pow(1-k,0.55)*Math.min(1,k*6)*(gh-12);
+    i? g3.lineTo(gx+4+k*(gw-8),y) : g3.moveTo(gx+4+k*(gw-8),y); }
+  g3.stroke();
+  g3.strokeStyle=rgba(T.core,0.9); g3.beginPath();
+  for(let i=0;i<=24;i++){ const k=i/24, v=k<0.18? k/0.18 : Math.max(0,1-(k-0.18)/0.82);
+    const y=gy+gh-4-v*(gh-16); i? g3.lineTo(gx+4+k*(gw-8),y) : g3.moveTo(gx+4+k*(gw-8),y); }
+  g3.stroke();
+  label(g3,"size/color over lifetime",gx+6,gy+gh+12>300?296:gy+gh-2+12-2,"rgba(140,160,190,0.85)");
+}
+function subBurst(x,y){
+  const isIce=cur==="ice", isBlack=cur==="black";
+  proj.flashes.push({x,y,from:12,to:96,life:0,max:0.28});
+  const n=34;
+  for(let i=0;i<n;i++){
+    const a=Math.random()*Math.PI*2, sp=70+Math.random()*150;
+    proj.sparks.push({x,y,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp-30,
+      life:0,max:0.5+Math.random()*0.55,size:6+Math.random()*8,kind:"spark"});
+  }
+  const m=isIce?12:6;
+  for(let i=0;i<m;i++){
+    const a=Math.random()*Math.PI*2, sp=50+Math.random()*120;
+    proj.sparks.push({x,y,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp-40,
+      life:0,max:0.6+Math.random()*0.5,size:9+Math.random()*8,kind:"shard",rot:Math.random()*6.28});
+  }
+}
+
+/* ================= 主循环与控件 ================= */
+let last=performance.now();
+function loop(now){
+  const dt=Math.min(0.05,(now-last)/1000); last=now;
+  drawFlipbook(dt); drawCC0(dt); drawShuriken(dt);
+  requestAnimationFrame(loop);
+}
+const bar=document.getElementById("themeBar");
+TIDS.forEach(id=>{
+  const b=document.createElement("button");
+  b.textContent=THEMES[id].label.split("（")[0];
+  b.onclick=()=>setTheme(id);
+  b.dataset.tid=id; bar.appendChild(b);
+});
+const pb=document.createElement("button");
+pb.className="pause"; pb.textContent="⏸ 暂停";
+pb.onclick=()=>{ paused=!paused; pb.textContent=paused?"▶ 播放":"⏸ 暂停"; };
+bar.appendChild(pb);
+function setTheme(id){
+  cur=id;
+  [...bar.querySelectorAll("button[data-tid]")].forEach(b=>b.classList.toggle("active",b.dataset.tid===id));
+  document.getElementById("refImg").src=THEMES[id].ref;
+  document.getElementById("refName").textContent="POE 参考图（对照用）· 当前主题："+THEMES[id].label;
+  rebuildTextures(); makeSheet();
+}
+makeStrip();
+setTheme("fire");
+requestAnimationFrame(loop);
+</script>
+</body>
+</html>

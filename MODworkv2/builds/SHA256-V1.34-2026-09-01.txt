@@ -1,0 +1,7 @@
+# V1.34 2026-09-01 完整版— Game-Later vanilla 92E0120F + V1.32 六项回灌 + 品质背景图，全量 typetree 对齐
+# DLL: MODworkv2/builds/ShadowDungeon-MOD-V1.34_2026-09-01/Assembly-CSharp.dll — 2,451,968 bytes — 0 error, 122 warnings — 完整版（品质背景图 + 词条档位 + V1.32 六项）
+82AF138CA6ABA5F4BAEF7D8655D666625F17024AAA92E948E706431A8F786599 *ShadowDungeon-MOD-V1.34_2026-09-01/Assembly-CSharp.dll
+# ZIP: MODworkv2/builds/ShadowDungeon-MOD-V1.34_2026-09-01.zip — 803KB — flat paths, install.ps1 hash 82AF138C, zip 37492817
+3749281712502F77DACC83BFF5257DC8B1660FE08A66B7536AF509D67ED4C1C1 *ShadowDungeon-MOD-V1.34_2026-09-01.zip
+# 先前 V1.33 69C0D965 为 Scheme A 未含品质背景图，V1.34 补全 QualityColor.SlotColors/ContainerSlotUtil.ApplyItemColor/SlotScript.SetItemColor
+# Vanilla backup: MODworkv2/backup/Assembly-CSharp.dll — 92E0120FB939BFACF15C86CD71F8B878AB77DB5118404C1F2F26CB46840D2D52 — 2,352,640 bytes

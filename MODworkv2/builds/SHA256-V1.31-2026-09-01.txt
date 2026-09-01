@@ -1,0 +1,7 @@
+# V1.31 2026-09-01 新基线重建版（同 V1.33 Scheme A）— Game-Later vanilla 92E0120F + V1.32 六项回灌（词条+Hand等全量 typetree）
+# DLL: MODworkv2/builds/ShadowDungeon-MOD-V1.31_2026-09-01/Assembly-CSharp.dll — 2,451,968 bytes — 0 error, 122 warnings — Scheme A
+69C0D965E1F761DE81A9468A0F95B30280B49DB1C91F576417088B35DB264E5C *ShadowDungeon-MOD-V1.31_2026-09-01/Assembly-CSharp.dll
+# ZIP: MODworkv2/builds/ShadowDungeon-MOD-V1.31_2026-09-01.zip — 803KB — flat paths, install.ps1 hash 69C0D965, zip FBE6880C
+FBE6880C26E7B5668A8CCA0CF5C25DFB7CF4E787AEA38D930B73344762666CA3 *ShadowDungeon-MOD-V1.31_2026-09-01.zip
+# 本包现为 Scheme A同步版（原 8AE99F38 V1.31-rebuild 已合并至 V1.33），旧 V1.31 (2026-08-30) 2216612A 在归档
+# Vanilla backup: MODworkv2/backup/Assembly-CSharp.dll — 92E0120FB939BFACF15C86CD71F8B878AB77DB5118404C1F2F26CB46840D2D52 — 2,352,640 bytes
