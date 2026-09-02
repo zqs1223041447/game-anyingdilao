@@ -13,7 +13,7 @@ $expectedHash = "__DLL_SHA256__"
 $packageDll = Join-Path $PSScriptRoot "Assembly-CSharp.dll"
 
 if ([string]::IsNullOrWhiteSpace($GameRoot)) {
-    $GameRoot = Read-Host "Enter the Shadow Dungeon game directory"
+    $GameRoot = Split-Path -Parent $PSScriptRoot
 }
 $GameRoot = [System.IO.Path]::GetFullPath($GameRoot.Trim().Trim([char]34))
 $managedDirectory = Join-Path $GameRoot "Shadow Dungeon_Data\Managed"
