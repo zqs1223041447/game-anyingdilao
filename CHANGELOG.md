@@ -26,6 +26,19 @@
 
 ---
 
+## V1.35 — DLL 版本元数据与防旧产物构建链修复
+
+- **日期**：2026-09-02
+- **背景**：重新构建后 MOD 功能已进入 DLL，但 DLL 版本信息回到旧值；人工复制 `bin`、历史升级包和游戏目录中的同名 DLL 还存在旧产物反向覆盖风险。
+- **根因**：`Assembly-CSharp.csproj` 关闭 `GenerateAssemblyInfo`，`Properties/AssemblyInfo.cs` 又把 `AssemblyVersion` 永久写死为 `0.0.0.0`，且仓库没有强制校验本次构建产物、打包产物和安装目标三者一致的入口。
+- **修复**：新增 `Directory.Build.props`，由 SDK 统一生成 `FileVersion=1.35.0.0`、`ProductVersion=1.35.0` 和自定义 `ModVersion`；Unity 程序集身份版本继续保持兼容值 `0.0.0.0`。新增 `build-mod.ps1/.cmd`，执行引用预检、clean、no-incremental、独立临时输出、时间/版本/SHA256 校验及升级包生成；新增自校验 `install.template.ps1` 和 `verify-dll.ps1`，安装时仅接受当前包内 DLL，自动备份并在失败时回滚。
+- **涉及文件**：`MODworkv2/decompiled/Assembly-CSharp.csproj`、`Directory.Build.props`、`Properties/AssemblyInfo.cs`、`MODworkv2/build-mod.ps1`、`build-mod.cmd`、`verify-dll.ps1`、`packaging/install.template.ps1`、`docs/dll-version-build-guide.md`
+- **产物 SHA256**：本提交为构建链源码修复；GitHub 仓库按 `.gitignore` 不含 `MODworkv2/refs` 及游戏 DLL，无法在纯仓库副本生成可运行 DLL。用户本机执行 `build-mod.ps1` 后，实际 DLL/ZIP SHA256 会写入 `BUILD-INFO.txt` 并在控制台输出。
+- **验证状态**：项目 XML/脚本静态检查、占位符检查、路径与防旧产物逻辑检查通过；完整编译和游戏冒烟须在含 127 个 `refs` 与游戏本体的 Windows 工作区执行。
+- **部署状态**：未部署；仅交付修复文件与操作说明。
+
+---
+
 ## V1.34 — 完整版（基于 Game-Later 新原版唯一基线逐行重做，品质背景图完整保留）
 
 - **日期**：2026-09-01

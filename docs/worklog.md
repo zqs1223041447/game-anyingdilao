@@ -2,6 +2,10 @@
 
 > 每次重要事件追加时间线条目，新条目在顶部。
 
+## 2026-09-02
+
+- **V1.35 DLL 版本回退修复 + 防旧产物构建链交付**：确认 `GenerateAssemblyInfo=False` + `AssemblyInfo.cs` 固定 `0.0.0.0` 导致新 MOD 代码已编入但文件版本元数据回退；新增 `Directory.Build.props` 集中版本源（FileVersion 1.35.0.0 / ProductVersion 1.35.0，Unity 程序集身份 0.0.0.0 保持兼容），启用 SDK AssemblyInfo 生成并清空旧属性文件。新增 `build-mod.ps1/.cmd`（引用预检、clean、no-incremental、GUID 独立输出、生成时间/版本/SHA 三重校验、同版本拒绝覆盖、升级包生成）、哈希与版本双校验安装器模板、`verify-dll.ps1`、中文完整指南。纯 GitHub 仓库缺 gitignored 的 127 refs/游戏 DLL，故不伪报构建成功；完整编译、DLL SHA 与游戏冒烟留用户含本体的 Windows 工作区执行。
+
 ## 2026-09-01
 
 - **V1.34 完整版重做（新原版唯一基线逐行）**：按用户提议以 `fresh_new` 为唯一基线逐行重做，备份 `69C0D965` 至 `backup/pre-rebuild-*`，回拷 895 .cs 基线，疏理 43 文件 MOD 清单（895 全部一致前每步校验），品质背景图 `QualityColor.SlotColors` 完整保留，`dotnet build 0 error`/`895 全部一致`，新构建 `82AF138C…599` 与 `Game-Later 92E0120F` typetree 对齐。

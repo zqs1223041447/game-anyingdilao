@@ -1,8 +1,10 @@
 # 状态日志 (Status)
 
-> 最后更新：2026-09-01（全量 typetree 修复版 82AF138C）
+> 最后更新：2026-09-02（V1.35 DLL 版本与防旧产物构建链修复）
 
 ## 当前阶段
+
+**V1.35 DLL 版本元数据与防旧产物构建链已完成源码修复，待完整 Windows 工作区编译/部署。** 根因是工程关闭 SDK AssemblyInfo 生成且反编译 `AssemblyInfo.cs` 固定 `AssemblyVersion=0.0.0.0`；现改由 `Directory.Build.props` 统一生成 `FileVersion=1.35.0.0` / `ProductVersion=1.35.0`，程序集身份版本为兼容 Unity 保持 `0.0.0.0`。新增 `build-mod.ps1` 唯一发布入口（refs 预检、clean、no-incremental、独立输出、时间/版本/SHA256 三重校验）、自校验安装器模板与 `verify-dll.ps1`。GitHub 纯仓库不含 gitignored 的 127 个引用 DLL 和游戏本体，本环境未伪造 DLL 构建；须在用户完整工作区执行说明中的构建和冒烟流程。
 
 **ShadowDungeon 新版 V1.34（2026-09-01 Scheme A 回灌版，82AF138C）已封版**——Game-Later vanilla `92E0120F…2D52` + V1.32 六项回灌（`LastCastInfo`/`BuffTime死门`/`组件白名单`/`TargetPos环向`/`3+N单环均分`/`词条双回退`），全量 typetree `895 文件全部一致`，`dotnet build 0 error/122 warnings`，构建 `82AF138C…64E5C`；新升级包 `ShadowDungeon-MOD-V1.34_2026-09-01.zip`（`37492817…7D06`，`82AF138C…`，HASH_MATCH_PASS）。P0 已解除，旧版已归档至 `_archive/DELETE-2026-09-01/`，本次按指示**不做自动化部署**。
 

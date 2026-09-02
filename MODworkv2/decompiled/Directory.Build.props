@@ -1,0 +1,25 @@
+<Project>
+  <PropertyGroup>
+    <!-- Change only this value for the next release, or pass -p:ModVersion=x.y.z. -->
+    <ModVersion Condition="'$(ModVersion)' == ''">1.35.0</ModVersion>
+
+    <!-- Keep the Unity assembly identity stable; expose the MOD release in file metadata. -->
+    <AssemblyIdentityVersion Condition="'$(AssemblyIdentityVersion)' == ''">0.0.0.0</AssemblyIdentityVersion>
+    <AssemblyVersion>$(AssemblyIdentityVersion)</AssemblyVersion>
+    <FileVersion>$(ModVersion).0</FileVersion>
+    <InformationalVersion>$(ModVersion)</InformationalVersion>
+    <Version>$(ModVersion)</Version>
+    <VersionPrefix>$(ModVersion)</VersionPrefix>
+    <PackageVersion>$(ModVersion)</PackageVersion>
+
+    <Product>Shadow Dungeon MOD</Product>
+    <Description>Shadow Dungeon Assembly-CSharp MOD build</Description>
+    <RepositoryUrl>https://github.com/zqs1223041447/game-anyingdilao</RepositoryUrl>
+    <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <AssemblyMetadata Include="ModVersion" Value="$(ModVersion)" />
+  </ItemGroup>
+</Project>
